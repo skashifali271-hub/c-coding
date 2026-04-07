@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main() {
+    int a[3][4], b[4][3], result[3][3];
+    int i, j, k;
+
+    printf("Enter elements for 3x4 Matrix A:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 4; j++) {
+            scanf("%d", &a[i][j]);
+        }
+    }
+
+    printf("Enter elements for 4x3 Matrix B:\n");
+    for (i = 0; i < 4; i++) {
+        for (j = 0; j < 3; j++) {
+            scanf("%d", &b[i][j]);
+        }
+    }
+
+    // Matrix Multiplication
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            result[i][j] = 0;
+            for (k = 0; k < 4; k++) {
+                result[i][j] += a[i][k] * b[k][j];
+            }
+        }
+    }
+
+    printf("\nResultant 3x3 Matrix:\n");
+    for (i = 0; i < 3; i++) {
+        for (j = 0; j < 3; j++) {
+            printf("%d\t", result[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
